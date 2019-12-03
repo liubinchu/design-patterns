@@ -5,18 +5,14 @@ package top.ericcliu.actional.delegate;
  * @date 03/12/2019 14:21
  */
 public class ConcreteNotifier extends Notifier{
-
     @Override
     public void addListener(Object object, String methodName, Object... args) {
-        this.getEventHandler().addEvent(object, methodName, args);
+        super.addListener(object, methodName, args);
+        // 添加 ConcreteNotifier 的逻辑
     }
-
     @Override
     public void notifyX() {
-        try {
-            this.getEventHandler().notifyX();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        super.notifyX();
+        // 添加 ConcreteNotifier 的逻辑
     }
 }

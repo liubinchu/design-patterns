@@ -17,8 +17,16 @@ public abstract class Notifier {
         this.eventHandler = eventHandler;
     }
 
-    public abstract void addListener(Object object,String methodName, Object...args);
+    public void addListener(Object object, String methodName, Object... args) {
+        this.getEventHandler().addEvent(object, methodName, args);
+    }
 
-    public abstract void notifyX();
+    public void notifyX() {
+        try {
+            this.getEventHandler().notifyX();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
